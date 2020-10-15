@@ -27,6 +27,7 @@
         v-on:keyup.enter="confirmName()"
       >
       <p>Your name: {{ confirmedName }}</p>
+      <p>Your name: {{ fullname }}</p>
       <form v-on:submit.prevent="submitForm()">
         <input type="text">
         <button>Sign Up</button>
