@@ -5,13 +5,13 @@ const app = Vue.createApp({
     };
   },
   methods: {
-    addCounter(param) {
-      this.counter++;
+    addCounter(number) {
+      this.counter = this.counter + number
     },
-    decreaseCounter() {
-      this.counter--;
+    reduceCounter(number) {
+      this.counter = this.counter - number
     }
   }
-});
+})
 
-app.mount('#events');
+app.mount('#events')
