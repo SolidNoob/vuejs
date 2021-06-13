@@ -3,16 +3,23 @@ const app = Vue.createApp({
         return {
             courseGoalA: 'Learn Vue',
             courseGoalB: 'Learn how to cook',
-            hrefLink: 'https://google.be'
+            //hrefLink: 'https://google.be'
         }
     },
     methods: {
-        ouputGoal() {
+        outputGoal() {
             const randomNumber = Math.random()
             if (randomNumber < 0.5)
                 return this.courseGoalA
             else
                 return this.courseGoalB
+        },
+        ouputHrefLink() {
+            const randomNumber = Math.random()
+            if (randomNumber < 0.5)
+                return 'https://google.be'
+            else
+                return 'https://www.wikipedia.com'
         }
     }
 })
