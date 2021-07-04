@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite === '1' ? '(Favorite)' : ''}}</h2>
+    <h2>{{ name }} {{ friendIsFavorite ? "(Favorite)" : "" }}</h2>
     <button @click="togglFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} details
@@ -16,43 +16,37 @@
 export default {
   //props: ["name", "phoneNumber", "emailAddress", "isFavorite"],
   props: {
-      name: {
-          type: String,
-          required: true,
-      },
-      phoneNumber: {
-          type: String,
-          required: true,
-      }, 
-      emailAddress: {
-          type: String,
-          required: true,
-      },
-      isFavorite: {
-          type: String,
-          required: false,
-          default: '0',
-          validator: function(value) {
-              return value === '1' || value === '0'
-          }
-      },
+    name: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    emailAddress: {
+      type: String,
+      required: true,
+    },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       detailsAreVisible: false,
-      friendIsFavorite: this.isFavorite
+      friendIsFavorite: this.isFavorite,
     };
   },
 
   methods: {
     toggleDetails() {
-      this.detailsAreVisible = ! this.detailsAreVisible
+      this.detailsAreVisible = !this.detailsAreVisible;
     },
     togglFavorite() {
-      if(this.friendIsFavorite === '1')
-        this.friendIsFavorite = '0'
-      else
-        this.friendIsFavorite = '1'
+      this.friendIsFavorite = !this.friendIsFavorite;
     },
   },
 };
